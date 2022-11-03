@@ -1,4 +1,4 @@
-# django-djourneys
+# DJANGO DJOURNEYS
 
 ## Python - Django Project
 
