@@ -85,8 +85,8 @@ destinations = Destination.objects.all()
 ```
 
 ### Ratings and Reviews -> detail.html
-```
 
+```
 <!-- AVERAGE STARS -->
                 <span class="show-ratings">
                 <i class="fa fa-star{% if destination.averageReview < 0.5 %}-o{% elif destination.averageReview >= 0.5 and destination.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
@@ -96,10 +96,11 @@ destinations = Destination.objects.all()
                 <i class="fa fa-star{% if destination.averageReview < 4.5 %}-o{% elif destination.averageReview >= 4.5 and destination.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
                 <span class="average-title">Average Rating: {{ destination.averageReview }} <span class="based-on-reviews">based on {{destination.countReview}} reviews</span></span>
                 </span> <br><br><br>
-            <!-- END OF AVERAGE STARS -->
+<!-- END OF AVERAGE STARS -->
 ```
 
 ### Ratings and Reviews -> style.css
+
 ```
 .rate > input {
     display:none;
@@ -148,9 +149,9 @@ input:checked + label:hover, input:checked ~ label:hover, input:checked ~ label:
 .average-title {
     margin-left: 20px;
 }
+```
 
-``
-
+###
 
 
 
