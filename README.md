@@ -40,6 +40,7 @@ My cohort mates and I decided to create a database with destinations and its det
 ## My contribution
 We worked very well as a group and each one of us played a fundamental part in this project. I am very happy with the way it looks in general and I used Bootstrap and well as FontAwesome. I also believe I did a good job with the reviews and ratings, the use of APIs and pagination.
 
+## Pagination
 ### Pagination index.html:
 ```
 <div class="pagination-div">
@@ -66,7 +67,7 @@ destinations = Destination.objects.all()
 ![image](https://user-images.githubusercontent.com/93624439/200589187-1f80573a-5ebc-4afa-9857-141c5f2e8442.png)
 
 
-
+## Ratings and Reviews
 ### Ratings and Reviews -> models.py
 
 ```
@@ -157,7 +158,72 @@ input:checked + label:hover, input:checked ~ label:hover, input:checked ~ label:
 ![image](https://user-images.githubusercontent.com/93624439/200589026-ffb04063-532e-4b86-ba8a-7f23fe22281e.png)
 
 
-###
+## Weather and Google Maps API
+### Weather -> script.js
+
+```
+// WEATHER API
+function info() {
+    let apiKey = "02b0e8be55f7e16deac161d58d733f1f";
+    let unit = "metric";
+    let city = document.getElementById("city");
+    city = city.innerText;
+    console.log(city);
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
+    
+    axios.get(apiUrl).then(updateApp);
+}
+function updateApp(response) {
+    // celsiusTemperature = response.data.main.temp;
+    let city = document.getElementById("city")
+    city = city.innerText;
+    console.log(city)
+    let currentTemperature = Math.round(response.data.main.temp);
+    let temperature = document.querySelector("#weather-temp");
+    temperature.innerHTML = `${currentTemperature}°C`;
+    let currentFeel = Math.round(response.data.main.feels_like);
+    let feel = document.querySelector("#weather-feel");
+    feel.innerHTML = `${currentFeel}°C`;
+    let currentDescription = response.data.weather[0].description;
+    let description = document.querySelector("#weather-desc");
+    description.innerHTML = `${currentDescription.charAt(0).toUpperCase() + currentDescription.slice(1)}`;
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src", `/static/images/weather-icons/${response.data.weather[0].icon}.svg`)
+}
+info()
+```
+
+## Google Maps -> script.js
+```
+// MAP
+function initMap() {
+  var map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 8,
+    center: { lat: -34.397, lng: 150.644 },
+  });
+  var geocoder = new google.maps.Geocoder();
+geocodeAddress(geocoder, map);
+};
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById("city");
+  address = address.innerText;
+  geocoder.geocode({ address: address }, function (results, status) {
+    if (status === "OK") {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location,
+      });
+    } else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+}
+```
+
+![image](https://user-images.githubusercontent.com/93624439/200589951-15be8659-b91e-4d10-be04-1436140d6b0c.png)
+
 
 
 
