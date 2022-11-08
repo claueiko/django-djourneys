@@ -63,6 +63,9 @@ destinations = Destination.objects.all()
         dest = p.get_page(page)
         return render(request, 'destinations/index.html', {'dest': dest, 'destinations': destinations})
 ```
+![image](https://user-images.githubusercontent.com/93624439/200589187-1f80573a-5ebc-4afa-9857-141c5f2e8442.png)
+
+
 
 ### Ratings and Reviews -> models.py
 
@@ -150,6 +153,9 @@ input:checked + label:hover, input:checked ~ label:hover, input:checked ~ label:
     margin-left: 20px;
 }
 ```
+
+![image](https://user-images.githubusercontent.com/93624439/200589026-ffb04063-532e-4b86-ba8a-7f23fe22281e.png)
+
 
 ###
 
