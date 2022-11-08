@@ -193,7 +193,7 @@ function updateApp(response) {
 info()
 ```
 
-## Google Maps -> script.js
+### Google Maps -> script.js
 ```
 // MAP
 function initMap() {
@@ -225,8 +225,22 @@ function geocodeAddress(geocoder, resultsMap) {
 ![image](https://user-images.githubusercontent.com/93624439/200589951-15be8659-b91e-4d10-be04-1436140d6b0c.png)
 
 
+## ERD
+![image](https://user-images.githubusercontent.com/93624439/200590850-d9f77241-1b71-484c-85b5-388104605356.png)
 
+## Wireframes
 
+### Homepage
+![image](https://user-images.githubusercontent.com/93624439/200590976-07c2ab41-e60d-4dd2-a251-78a1342704a7.png)
+
+### Results - Index Page
+![image](https://user-images.githubusercontent.com/93624439/200591070-8a4c1be7-ab42-47d5-b62b-51f7e2044370.png)
+
+### Destination Details Page
+![image](https://user-images.githubusercontent.com/93624439/200591161-d260fc5b-f809-49d7-bba0-8662ce59ee99.png)
+
+### Quiz Page
+![image](https://user-images.githubusercontent.com/93624439/200591244-f81d13b4-2584-45be-a6ee-739afee75af3.png)
 
 
 
