@@ -41,7 +41,7 @@ My cohort mates and I decided to create a database with destinations and its det
 We worked very well as a group and each one of us played a fundamental part in this project. I am very happy with the way it looks in general and I used Bootstrap and well as FontAwesome. I also believe I did a good job with the reviews and ratings, the use of APIs and pagination.
 
 ## Pagination
-### Pagination index.html:
+### Pagination -> index.html:
 ```
 <div class="pagination-div">
     {% if dest.has_previous %}
@@ -55,7 +55,7 @@ We worked very well as a group and each one of us played a fundamental part in t
 {% endif %}
 </div>
 ```
-### Pagination views.py (pip i paginatior)
+### Pagination -> views.py (pip i paginator)
 ```
 destinations = Destination.objects.all()
     # PAGINATION
