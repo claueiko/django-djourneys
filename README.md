@@ -62,6 +62,98 @@ destinations = Destination.objects.all()
         page = request.GET.get('page')
         dest = p.get_page(page)
         return render(request, 'destinations/index.html', {'dest': dest, 'destinations': destinations})
+```
+
+### Ratings and Reviews -> models.py
+
+```
+# AVERAGE REVIEWS AND COUNT:
+    def averageReview(self):
+        reviews = Review.objects.filter(destination=self).aggregate(average=Avg('rating'))
+        avg = 0
+        if reviews['average'] is not None:
+            avg = int(reviews['average'])
+        return avg
+
+    def countReview(self):
+        reviews = Review.objects.filter(destination=self).aggregate(count=Count('id'))
+        count = 0
+        if reviews['count'] is not None:
+            count = int(reviews['count'])
+        return count
+    # END OF AVERAGE REVIEWS AND COUNT
+```
+
+### Ratings and Reviews -> detail.html
+```
+
+<!-- AVERAGE STARS -->
+                <span class="show-ratings">
+                <i class="fa fa-star{% if destination.averageReview < 0.5 %}-o{% elif destination.averageReview >= 0.5 and destination.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                <i class="fa fa-star{% if destination.averageReview < 1.5 %}-o{% elif destination.averageReview >= 1.5 and destination.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                <i class="fa fa-star{% if destination.averageReview < 2.5 %}-o{% elif destination.averageReview >= 2.5 and destination.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                <i class="fa fa-star{% if destination.averageReview < 3.5 %}-o{% elif destination.averageReview >= 3.5 and destination.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                <i class="fa fa-star{% if destination.averageReview < 4.5 %}-o{% elif destination.averageReview >= 4.5 and destination.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                <span class="average-title">Average Rating: {{ destination.averageReview }} <span class="based-on-reviews">based on {{destination.countReview}} reviews</span></span>
+                </span> <br><br><br>
+            <!-- END OF AVERAGE STARS -->
+```
+
+### Ratings and Reviews -> style.css
+```
+.rate > input {
+    display:none;
+}
+.rate {
+    display: inline-block;
+    border: 0;
+}
+.rate > label {
+    float: right;
+}
+/* Showing stars */
+.rate > label:before{
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    margin: 0;
+    padding: 0.3rem .2rem;
+    cursor: pointer;
+}
+/* half stars */
+.rate .half:before{
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+}
+/* Click on hover */
+input:checked ~ label, label:hover ~ label{
+    color: #ffb503;
+}
+/* HOVER HIGHLIGHT */ 
+input:checked + label:hover, input:checked ~ label:hover, input:checked ~ label:hover ~ label, label:hover ~ input:checked ~ label {
+    color: #ffb503;
+}
+.fa-star {
+    color: #ffb503;
+}
+.show-ratings {
+    font-size: 22px;
+}
+.based-on-reviews {
+    font-size: 18px;
+    margin-left: 20px;
+}
+.average-title {
+    margin-left: 20px;
+}
+
+``
+
+
+
+
 
 
 
