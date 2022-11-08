@@ -8,4 +8,12 @@ Not sure where to travel next? Use our Quiz and get ideas for your next adventur
 
 Django Djourneys was built in one week using Python and Django, PostreSQL, and Bootstrap, as well as Google Geolocation API and OpenWeather API.
 
-[You can check out the deployed version here:](https://djangodjourney.herokuapp.com) 
+[You can check out the deployed version here](https://djangodjourney.herokuapp.com) 
+
+### Django Djourneys
+Was built in one week as part of General Assembly Software Engineering Immersive Course. This was my 3rd (out of 4) project, in collab with Alexander Ward and Milos Jocic.
+
+### Technologies used
+Built on Python and Django, we also used PostgreSQL, Multer, Bootstrap and jQuery.
+
+### Wins 
