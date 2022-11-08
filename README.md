@@ -53,7 +53,7 @@ We worked very well as a group and each one of us played a fundamental part in t
 <a class="pagination" href="?page={{ dest.paginator.num_pages }} ">Last &raquo</a>
 {% endif %}
 </div>
-
+```
 ### Pagination views.py (pip i paginatior)
 ```
 destinations = Destination.objects.all()
